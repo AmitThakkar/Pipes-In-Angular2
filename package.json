@@ -1,0 +1,54 @@
+{
+  "name": "pipes-in-angular2",
+  "version": "0.0.1",
+  "description": "This blog explain Pipes in Angular2",
+  "main": "system.config.js",
+  "dependencies": {
+    "@angular/common": "2.0.0-rc.3",
+    "@angular/compiler": "2.0.0-rc.3",
+    "@angular/core": "2.0.0-rc.3",
+    "@angular/forms": "0.1.1",
+    "@angular/http": "2.0.0-rc.3",
+    "@angular/platform-browser": "2.0.0-rc.3",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.3",
+    "@angular/router": "3.0.0-alpha.7",
+    "@angular/router-deprecated": "2.0.0-rc.2",
+    "@angular/upgrade": "2.0.0-rc.3",
+    "systemjs": "0.19.27",
+    "core-js": "^2.4.0",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.6",
+    "zone.js": "^0.6.12",
+    "angular2-in-memory-web-api": "0.0.12",
+    "bootstrap": "^3.3.6"
+  },
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.2.0",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4"
+  },
+  "scripts": {
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmitThakkar/Pipes-In-Angular2.git"
+  },
+  "keywords": [
+    "Angular2",
+    "Pipes",
+    "Filters"
+  ],
+  "author": "Amit Thakkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmitThakkar/Pipes-In-Angular2/issues"
+  },
+  "homepage": "https://github.com/AmitThakkar/Pipes-In-Angular2#readme"
+}
