@@ -1,2 +1,4 @@
-# Pipes-Filters-In-Angular2
+# Pipes in Angular2
+
 This blog explain Pipes in Angular2
+
