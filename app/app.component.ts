@@ -22,14 +22,16 @@ import {Observable} from 'rxjs/Rx';
         My DOM in Custom Form : <strong> {{ birthday | date : 'dd/MM/yyyy' }} </strong>
         <h3>async Pipe</h3>
         <hr />
-        Async Value without async Pipe : <strong> {{ asyncValue$ }} </strong><br/>
-        Async Value with async Pipe : <strong> {{ asyncValue$ | async }} </strong><br/>
+        Async Value without Pipe : <strong> {{ age }} </strong><br/>
+        Async Object without async Pipe : <strong> {{ asyncValue$ }} </strong><br/>
+        Async Object with async Pipe : <strong> {{ asyncValue$ | async }} </strong><br/>
     `
 })
 export class AppComponent {
     name = 'Amit Thakkar';
     birthday = new Date(1988, 9, 1); // October 1, 1988
     asyncValue$:Observable<string>;
+    age = 0;
 
     private messages = [
         'You are my hero!',
@@ -38,12 +40,17 @@ export class AppComponent {
     ];
 
     constructor() {
-        this.resend();
+        this.setAge(27);
     }
 
-    resend() {
-        this.asyncValue$ = Observable.interval(1000)
-            .map(i => this.messages[i])
-            .take(this.messages.length);
+    setAge(age) {
+        let _this = this;
+        setTimeout(() => {
+            _this.age = age;
+        }, 2000);
     }
+
+    asyncValue$ = Observable.interval(1000)
+        .map(i => this.messages[i])
+        .take(this.messages.length);
 }
