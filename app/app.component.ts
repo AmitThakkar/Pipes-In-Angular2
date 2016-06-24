@@ -2,6 +2,8 @@
  * Created by amitthakkar on 23/06/16.
  */
 import {Component} from '@angular/core';
+import {Observable} from 'rxjs/Rx';
+
 @Component({
     selector: 'my-app',
     template: `
@@ -18,9 +20,30 @@ import {Component} from '@angular/core';
         My DOB in toString Form : <strong> {{ birthday }} </strong><br/>
         My DOM in Readable Form : <strong> {{ birthday | date }} </strong><br/>
         My DOM in Custom Form : <strong> {{ birthday | date : 'dd/MM/yyyy' }} </strong>
+        <h3>async Pipe</h3>
+        <hr />
+        Async Value without async Pipe : <strong> {{ asyncValue$ }} </strong><br/>
+        Async Value with async Pipe : <strong> {{ asyncValue$ | async }} </strong><br/>
     `
 })
 export class AppComponent {
     name = 'Amit Thakkar';
     birthday = new Date(1988, 9, 1); // October 1, 1988
+    asyncValue$:Observable<string>;
+
+    private messages = [
+        'You are my hero!',
+        'You are the best hero!',
+        'Will you be my hero?'
+    ];
+
+    constructor() {
+        this.resend();
+    }
+
+    resend() {
+        this.asyncValue$ = Observable.interval(1000)
+            .map(i => this.messages[i])
+            .take(this.messages.length);
+    }
 }
