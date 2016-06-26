@@ -40,17 +40,16 @@ export class AppComponent {
     ];
 
     constructor() {
-        this.setAge(27);
+        this.initializeController(27);
     }
 
-    setAge(age) {
-        let _this = this;
+    initializeController(age) {
+        this.asyncValue$ = Observable.interval(1000)
+            .map(i => this.messages[i])
+            .take(this.messages.length);
+
         setTimeout(() => {
-            _this.age = age;
+            this.age = age;
         }, 2000);
     }
-
-    asyncValue$ = Observable.interval(1000)
-        .map(i => this.messages[i])
-        .take(this.messages.length);
 }
