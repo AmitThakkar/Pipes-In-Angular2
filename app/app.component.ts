@@ -7,24 +7,29 @@ import {Observable} from 'rxjs/Rx';
 @Component({
     selector: 'my-app',
     template: `
-        <h3>Upper Case Pipe</h3>
+        <h3>Upper Case Pipe:</h3>
         <hr />
         My Name in toString Form : <strong> {{ name }} </strong><br/>
         My Name in Uppercase : <strong> {{ name | uppercase }} </strong>
-        <h3>Lower Case Pipe</h3>
+        <h3>Lower Case Pipe:</h3>
         <hr />
         My Name in toString Form : <strong> {{ name }} </strong><br/>
         My Name in Lowercase : <strong> {{ name | lowercase }} </strong>
-        <h3>date Pipe</h3>
+        <h3>Date Pipe:</h3>
         <hr />
         My DOB in toString Form : <strong> {{ birthday }} </strong><br/>
         My DOM in Readable Form : <strong> {{ birthday | date }} </strong><br/>
-        My DOM in Custom Form : <strong> {{ birthday | date : 'dd/MM/yyyy' }} </strong>
-        <h3>async Pipe</h3>
+        <h3>Parameterized a Pipe:</h3>
+        <hr />
+        My DOM in Custom Form : <strong> {{ birthday | date : 'dd/MM/yyyy' }} </strong><br />
+        <h3>Async Pipe:</h3>
         <hr />
         Async Value without Pipe : <strong> {{ age }} </strong><br/>
         Async Object without async Pipe : <strong> {{ asyncValue$ }} </strong><br/>
         Async Object with async Pipe : <strong> {{ asyncValue$ | async }} </strong><br/>
+        <h3>Chaining Pipe:</h3>
+        <hr />
+        My DOM in Custom Form : <strong> {{ birthday | date : 'MMM dd, yyyy' | uppercase }} </strong>
     `
 })
 export class AppComponent {
