@@ -9,13 +9,10 @@ import {RangePipe} from './range.pipe'
     selector: 'my-app',
     pipes: [RangePipe],
     template: `
-        <h3>Upper Case Pipe:</h3>
+        <h3>Uppercase/Lowercase Pipe:</h3>
         <hr />
         My Name in toString Form : <strong> {{ name }} </strong><br/>
         My Name in Uppercase : <strong> {{ name | uppercase }} </strong>
-        <h3>Lower Case Pipe:</h3>
-        <hr />
-        My Name in toString Form : <strong> {{ name }} </strong><br/>
         My Name in Lowercase : <strong> {{ name | lowercase }} </strong>
         <h3>Date Pipe:</h3>
         <hr />
@@ -24,20 +21,18 @@ import {RangePipe} from './range.pipe'
         <h3>Parameterized a Pipe:</h3>
         <hr />
         My DOM in Custom Form : <strong> {{ birthday | date : 'dd/MM/yyyy' }} </strong><br />
+        <h3>JSON Pipe:</h3>
+        <hr />
+        Object without JSON Pipe : <strong> {{ userObject }} </strong><br/>
+        Object with JSON Pipe : <strong> {{ userObject | json }} </strong><br/>
         <h3>Async Pipe:</h3>
         <hr />
         Async Value without Pipe : <strong> {{ age }} </strong><br/>
         Async Object without async Pipe : <strong> {{ asyncValue$ }} </strong><br/>
         Async Object with async Pipe : <strong> {{ asyncValue$ | async }} </strong><br/>
-        <h3>Percent Pipe:</h3>
-        <hr />
-        Percent Value with percent Pipe : <strong> {{ number | percent }} </strong><br/>
-        <h3>JSON Pipe:</h3>
-        <hr />
-        Async Value without Pipe : <strong> {{ age }} </strong><br/>
         <h3>Chaining Pipe:</h3>
         <hr />
-        My DOM in Custom Form : <strong> {{ birthday | date : 'MMM dd, yyyy' | uppercase }} </strong>
+        Chaining Pipe result : <strong> {{ birthday | date : 'MMM dd, yyyy' | uppercase }} </strong>
         <h3>Custom Pipe</h3>
         <hr />
         | <span *ngFor="let value of (1 | range : 10)">{{value}} | </span>
@@ -49,6 +44,10 @@ export class AppComponent {
     asyncValue$:Observable<string>;
     age = 0;
     number = 34;
+    userObject = {
+        name: 'Amit Thakkar',
+        age: 27
+    };
 
     private messages = [
         'You are my hero!',
