@@ -27,6 +27,12 @@ import {Observable} from 'rxjs/Rx';
         Async Value without Pipe : <strong> {{ age }} </strong><br/>
         Async Object without async Pipe : <strong> {{ asyncValue$ }} </strong><br/>
         Async Object with async Pipe : <strong> {{ asyncValue$ | async }} </strong><br/>
+        <h3>Percent Pipe:</h3>
+        <hr />
+        Percent Value with percent Pipe : <strong> {{ number | percent }} </strong><br/>
+        <h3>JSON Pipe:</h3>
+        <hr />
+        Async Value without Pipe : <strong> {{ age }} </strong><br/>
         <h3>Chaining Pipe:</h3>
         <hr />
         My DOM in Custom Form : <strong> {{ birthday | date : 'MMM dd, yyyy' | uppercase }} </strong>
@@ -37,6 +43,7 @@ export class AppComponent {
     birthday = new Date(1988, 9, 1); // October 1, 1988
     asyncValue$:Observable<string>;
     age = 0;
+    number = 34;
 
     private messages = [
         'You are my hero!',
