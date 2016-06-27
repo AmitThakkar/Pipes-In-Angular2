@@ -3,9 +3,11 @@
  */
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
+import {RangePipe} from './range.pipe'
 
 @Component({
     selector: 'my-app',
+    pipes: [RangePipe],
     template: `
         <h3>Upper Case Pipe:</h3>
         <hr />
@@ -36,6 +38,9 @@ import {Observable} from 'rxjs/Rx';
         <h3>Chaining Pipe:</h3>
         <hr />
         My DOM in Custom Form : <strong> {{ birthday | date : 'MMM dd, yyyy' | uppercase }} </strong>
+        <h3>Custom Pipe</h3>
+        <hr />
+        | <span *ngFor="let value of (1 | range : 10)">{{value}} | </span>
     `
 })
 export class AppComponent {
