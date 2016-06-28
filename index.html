@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pipes in Angular2 by AmitThakkar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Pipes in Angular2</h1>
+      <h2 class="project-tagline">This blog explain Pipes in Angular2</h2>
+      <a href="https://github.com/AmitThakkar/Pipes-In-Angular2" class="btn">View on GitHub</a>
+      <a href="https://github.com/AmitThakkar/Pipes-In-Angular2/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/AmitThakkar/Pipes-In-Angular2/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="pipes-in-angular2" class="anchor" href="#pipes-in-angular2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pipes in Angular2</h1>
+
+<p>This blog explain Pipes in Angular2</p>
+
+<p>In Angular2, we call <strong>Pipe</strong> to <strong><a href="http://namitamalik.github.io/Filters-in-AngularJS/">Filters</a></strong>. 
+Who are not aware with <strong>AngularJS</strong>, <strong>Pipe</strong> transform the display value within view e.g.</p>
+
+<ol>
+<li>
+<p><strong>Uppercase/Lowercase</strong> <strong>Pipe</strong>:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>My Name in toString Form : &lt;<span class="pl-ent">strong</span>&gt; {{ name }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;
+My Name in Uppercase : &lt;<span class="pl-ent">strong</span>&gt; {{ name | uppercase }} &lt;/<span class="pl-ent">strong</span>&gt;
+My Name in Lowercase : &lt;<span class="pl-ent">strong</span>&gt; {{ name | lowercase }} &lt;/<span class="pl-ent">strong</span>&gt;</pre></div>
+
+<p>First line will print the name value as it is, but second line will print the name in the Upper Case
+while third line will print the name in the Lower Case.</p>
+
+<blockquote>
+<p>Property <code>name</code> will not change, It would be as it is.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Date</strong> <strong>Pipe</strong>:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>My DOB in toString Form : &lt;<span class="pl-ent">strong</span>&gt; {{ birthday }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;
+My DOM in Readable Form : &lt;<span class="pl-ent">strong</span>&gt; {{ birthday | date }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;</pre></div>
+
+<p>First line will print full date of birth in local time zone(will call toString() on Date), i.e. 
+<code>Sat Oct 01 1988 00:00:00 GMT+0530 (IST)</code>, but second line will print the birthday in more simple
+format i.e. <code>Oct 1, 1988</code>.</p>
+
+<p>We can pass parameters to a pipe, e.g.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>My DOM in Custom Form : &lt;<span class="pl-ent">strong</span>&gt; {{ birthday | date : 'dd/MM/yyyy' }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span> /&gt;</pre></div>
+
+<p>In the above line we are providing the date format, in which date should be displayed.</p>
+</li>
+<li>
+<p><strong>JSON</strong> <strong>Pipe</strong>:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>Object without JSON Pipe : &lt;<span class="pl-ent">strong</span>&gt; {{ userObject }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;
+Object with JSON Pipe : &lt;<span class="pl-ent">strong</span>&gt; {{ userObject | json }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;&lt;<span class="pl-ent">h3</span>&gt;Async Pipe:&lt;/<span class="pl-ent">h3</span>&gt;</pre></div>
+
+<p>First line will print <code>[object Object]</code>(userObject.toString() returns <code>[object Object]</code>), but second line will print
+<code>{ "name": "Amit Thakkar", "age": 27 }</code>(JSON.stringify(userObject) return <code>{ "name": "Amit Thakkar", "age": 27 }</code>). 
+So <strong>json</strong> <strong>pipe</strong> will display object in <strong>json</strong>/readable form.</p>
+</li>
+<li>
+<p><strong>Async</strong> <strong>Pipe</strong></p>
+
+<div class="highlight highlight-text-html-basic"><pre>Async Value without Pipe : &lt;<span class="pl-ent">strong</span>&gt; {{ age }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;
+Async Object without async Pipe : &lt;<span class="pl-ent">strong</span>&gt; {{ asyncValue$ }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;
+Async Object with async Pipe : &lt;<span class="pl-ent">strong</span>&gt; {{ asyncValue$ | async }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;</pre></div>
+
+<p>First line having a value, which gets initialized asynchronously, and print the value on view whenever gets initialized.
+while on second line we have promise/observable which print <code>[object Object]</code> instead of value while on third line
+we are using <strong>async</strong> <strong>pipe</strong> so it will print value whenever it gets promise/observable resolved.</p>
+</li>
+</ol>
+
+<p>We can chain multiple <strong>Pipe</strong> one after one. So output of one <strong>pipe</strong> will be input for second <strong>pipe</strong>. And output of 
+last <strong>pipe</strong> will be displayed on view e.g.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>Chaining Pipe result : &lt;<span class="pl-ent">strong</span>&gt; {{ birthday | date : 'MMM dd, yyyy' | uppercase }} &lt;/<span class="pl-ent">strong</span>&gt;</pre></div>
+
+<h4>
+<a id="custom-pipes" class="anchor" href="#custom-pipes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Custom Pipes</h4>
+
+<p>We can create <strong>Custom</strong> <strong>Pipes</strong> in <strong>Angular2</strong>, although <strong>Angular2</strong> has provided all basic <strong>Pipes</strong> e.g. <strong>Uppercase</strong>, 
+<strong>Lowercase</strong>, <strong>Date</strong>, <strong>JSON</strong>, <strong>Async</strong> etc. But sometime we have to create <strong>custom</strong> <strong>pipe</strong> e.g. <strong>range</strong> <strong>pipe</strong>:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>| &lt;<span class="pl-ent">span</span> *<span class="pl-e">ngFor</span>=<span class="pl-s"><span class="pl-pds">"</span>let value of (1 | range : 10)<span class="pl-pds">"</span></span>&gt;{{value}} | &lt;/<span class="pl-ent">span</span>&gt;</pre></div>
+
+<p>Here we are repeating the span 10 times, <strong>range</strong> <strong>pipe</strong> will create the array of values from 1(min value) to 10(max value), 
+and <strong>*ngFor</strong> will repeat the span 10 times with value 1 to 10.</p>
+
+<p>Lets see the <strong>Range</strong> <strong>Pipe</strong> code:</p>
+
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">import</span> {Pipe, PipeTransform} <span class="pl-k">from</span> <span class="pl-s">'@angular/core'</span>;
+
+@Pipe({name: <span class="pl-s">'range'</span>})
+<span class="pl-k">export</span> <span class="pl-k">class</span> <span class="pl-en">RangePipe</span> <span class="pl-k">implements</span> <span class="pl-k">PipeTransform</span> {
+    <span class="pl-en">transform</span>(<span class="pl-v">minValue</span>:<span class="pl-k">number</span>, <span class="pl-v">maxValue</span>:<span class="pl-k">number</span>):<span class="pl-k">number</span>[] {
+        <span class="pl-k">let</span> <span class="pl-v">range</span> = [];
+        <span class="pl-k">for</span> (<span class="pl-k">let</span> index <span class="pl-k">=</span> minValue; index <span class="pl-k">&lt;=</span> maxValue; index<span class="pl-k">++</span>) {
+            range.push(index);
+        }
+        <span class="pl-k">return</span> range;
+    }
+}</pre></div>
+
+<p>So you can see in the above code, implementing the <strong>custom</strong> <strong>pipe</strong> in <strong>angular2</strong> is quite easy.
+1. Import the <strong>Pipe</strong> and <strong>PipeTransform</strong> class from <code>@angular/code</code>. 
+2. Provide <strong>Pipe</strong> name in <code>@Pipe</code> annotation.
+3. Implement <strong>PipeTransform</strong> and provide <strong>transform</strong> method of it.</p>
+
+<blockquote>
+<p>transform method will contain all the logic for transforming the input.</p>
+</blockquote>
+
+<h2>
+<a id="follow-me" class="anchor" href="#follow-me" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Follow Me</h2>
+
+<p><a href="https://github.com/AmitThakkar">Github</a></p>
+
+<p><a href="https://twitter.com/amit_thakkar01">Twitter</a></p>
+
+<p><a href="https://in.linkedin.com/in/amitthakkar01">LinkedIn</a></p>
+
+<p><a href="http://amitthakkar.github.io/">More Blogs By Me</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/AmitThakkar/Pipes-In-Angular2">Pipes in Angular2</a> is maintained by <a href="https://github.com/AmitThakkar">AmitThakkar</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
