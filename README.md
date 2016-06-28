@@ -88,9 +88,11 @@ export class RangePipe implements PipeTransform {
 ```
 
 So you can see in the above code, implementing the **custom** **pipe** in **angular2** is quite easy.
-1. Import the **Pipe** and **PipeTransform** class from `@angular/code`. 
+
+1. Import the **Pipe** and **PipeTransform** class from `@angular/code`.
 2. Provide **Pipe** name in `@Pipe` annotation.
 3. Implement **PipeTransform** and provide **transform** method of it.
+
 > transform method will contain all the logic for transforming the input.
 
 Follow Me
