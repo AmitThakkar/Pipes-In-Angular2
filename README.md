@@ -92,3 +92,13 @@ So you can see in the above code, implementing the **custom** **pipe** in **angu
 2. Provide **Pipe** name in `@Pipe` annotation.
 3. Implement **PipeTransform** and provide **transform** method of it.
 > transform method will contain all the logic for transforming the input.
+
+Follow Me
+---
+[Github](https://github.com/AmitThakkar)
+
+[Twitter](https://twitter.com/amit_thakkar01)
+
+[LinkedIn](https://in.linkedin.com/in/amitthakkar01)
+
+[More Blogs By Me](http://amitthakkar.github.io/)
