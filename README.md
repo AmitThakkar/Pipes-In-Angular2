@@ -2,8 +2,8 @@
 
 This blog explain Pipes in Angular2
 
-In Angular2, we call **Pipe** to **[Filters](http://namitamalik.github.io/Filters-in-AngularJS/)**. 
-Who are not aware with **AngularJS**, **Pipe** transform the display value within view e.g.
+In Angular2, we call **Pipes** to **[Filters](http://namitamalik.github.io/Filters-in-AngularJS/)**. 
+Who are not aware with **AngularJS**, **Pipe** transform the value in view, e.g.
 
 1. **Uppercase/Lowercase** **Pipe**:
     ```HTML
@@ -51,9 +51,9 @@ Who are not aware with **AngularJS**, **Pipe** transform the display value withi
     
     First line having a value, which gets initialized asynchronously, and print the value on view whenever gets initialized.
     while on second line we have promise/observable which print `[object Object]` instead of value while on third line
-    we are using **async** **pipe** so it will print value whenever it gets promise/observable resolved.
+    we are using **async** **pipe** so it will print value whenever promise/observable gets resolved.
 
-We can chain multiple **Pipe** one after one. So output of one **pipe** will be input for second **pipe**. And output of 
+We can chain multiple **Pipe** one after one. So output of one **pipe** will be input for second **pipe** and so on. Output of 
 last **pipe** will be displayed on view e.g.
 
 ```HTML
@@ -91,7 +91,7 @@ So you can see in the above code, implementing the **custom** **pipe** in **angu
 
 1. Import the **Pipe** and **PipeTransform** class from `@angular/code`.
 2. Provide **Pipe** name in `@Pipe` annotation.
-3. Implement **PipeTransform** and provide **transform** method of it.
+3. Implement **transform** method of **PipeTransform**.
 
 > transform method will contain all the logic for transforming the input.
 
