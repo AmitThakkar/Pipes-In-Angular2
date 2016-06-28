@@ -59,3 +59,36 @@ last **pipe** will be displayed on view e.g.
 ```HTML
 Chaining Pipe result : <strong> {{ birthday | date : 'MMM dd, yyyy' | uppercase }} </strong>
 ```
+
+#### Custom Pipes
+
+We can create **Custom** **Pipes** in **Angular2**, although **Angular2** has provided all basic **Pipes** e.g. **Uppercase**, 
+**Lowercase**, **Date**, **JSON**, **Async** etc. But sometime we have to create **custom** **pipe** e.g. **range** **pipe**:
+
+```HTML
+| <span *ngFor="let value of (1 | range : 10)">{{value}} | </span>
+```
+Here we are repeating the span 10 times, **range** **pipe** will create the array of values from 1(min value) to 10(max value), 
+and **\*ngFor** will repeat the span 10 times with value 1 to 10.
+
+Lets see the **Range** **Pipe** code:
+```TypeScript
+import {Pipe, PipeTransform} from '@angular/core';
+
+@Pipe({name: 'range'})
+export class RangePipe implements PipeTransform {
+    transform(minValue:number, maxValue:number):number[] {
+        let range = [];
+        for (let index = minValue; index <= maxValue; index++) {
+            range.push(index);
+        }
+        return range;
+    }
+}
+```
+
+So you can see in the above code, implementing the **custom** **pipe** in **angular2** is quite easy.
+1. Import the **Pipe** and **PipeTransform** class from `@angular/code`. 
+2. Provide **Pipe** name in `@Pipe` annotation.
+3. Implement **PipeTransform** and provide **transform** method of it.
+> transform method will contain all the logic for transforming the input.
