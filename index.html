@@ -24,8 +24,8 @@
 
 <p>This blog explain Pipes in Angular2</p>
 
-<p>In Angular2, we call <strong>Pipe</strong> to <strong><a href="http://namitamalik.github.io/Filters-in-AngularJS/">Filters</a></strong>. 
-Who are not aware with <strong>AngularJS</strong>, <strong>Pipe</strong> transform the display value within view e.g.</p>
+<p>In Angular2, <strong><a href="http://namitamalik.github.io/Filters-in-AngularJS/">Filters</a></strong> are known as <strong>Pipes</strong>. 
+Those who are not aware with <strong>AngularJS</strong>, <strong>Pipes</strong> transform the value in view, e.g.</p>
 
 <ol>
 <li>
@@ -39,7 +39,7 @@ My Name in Lowercase : &lt;<span class="pl-ent">strong</span>&gt; {{ name | lowe
 while third line will print the name in the Lower Case.</p>
 
 <blockquote>
-<p>Property <code>name</code> will not change, It would be as it is.</p>
+<p>Property <code>name</code> will not change, it would be as it is.</p>
 </blockquote>
 </li>
 <li>
@@ -56,7 +56,7 @@ format i.e. <code>Oct 1, 1988</code>.</p>
 
 <div class="highlight highlight-text-html-basic"><pre>My DOM in Custom Form : &lt;<span class="pl-ent">strong</span>&gt; {{ birthday | date : 'dd/MM/yyyy' }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span> /&gt;</pre></div>
 
-<p>In the above line we are providing the date format, in which date should be displayed.</p>
+<p>In the above line we are providing the date format in which date should be displayed.</p>
 </li>
 <li>
 <p><strong>JSON</strong> <strong>Pipe</strong>:</p>
@@ -75,13 +75,13 @@ So <strong>json</strong> <strong>pipe</strong> will display object in <strong>js
 Async Object without async Pipe : &lt;<span class="pl-ent">strong</span>&gt; {{ asyncValue$ }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;
 Async Object with async Pipe : &lt;<span class="pl-ent">strong</span>&gt; {{ asyncValue$ | async }} &lt;/<span class="pl-ent">strong</span>&gt;&lt;<span class="pl-ent">br</span>/&gt;</pre></div>
 
-<p>First line having a value, which gets initialized asynchronously, and print the value on view whenever gets initialized.
-while on second line we have promise/observable which print <code>[object Object]</code> instead of value while on third line
-we are using <strong>async</strong> <strong>pipe</strong> so it will print value whenever it gets promise/observable resolved.</p>
+<p>First line is having a value, which gets initialized asynchronously, and prints the value on view whenever gets initialized.
+while in the second line we have <strong>promise</strong> / <strong>observable</strong> which prints <code>[object Object]</code> instead of value while on third line
+we are using <strong>async</strong> <strong>pipe</strong> so it will print value whenever <strong>promise</strong> / <strong>observable</strong> gets resolved.</p>
 </li>
 </ol>
 
-<p>We can chain multiple <strong>Pipe</strong> one after one. So output of one <strong>pipe</strong> will be input for second <strong>pipe</strong>. And output of 
+<p>We can chain multiple <strong>Pipes</strong> one after one. So output of one <strong>pipe</strong> will be input for second <strong>pipe</strong> and so on. Output of 
 last <strong>pipe</strong> will be displayed on view e.g.</p>
 
 <div class="highlight highlight-text-html-basic"><pre>Chaining Pipe result : &lt;<span class="pl-ent">strong</span>&gt; {{ birthday | date : 'MMM dd, yyyy' | uppercase }} &lt;/<span class="pl-ent">strong</span>&gt;</pre></div>
@@ -90,7 +90,7 @@ last <strong>pipe</strong> will be displayed on view e.g.</p>
 <a id="custom-pipes" class="anchor" href="#custom-pipes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Custom Pipes</h4>
 
 <p>We can create <strong>Custom</strong> <strong>Pipes</strong> in <strong>Angular2</strong>, although <strong>Angular2</strong> has provided all basic <strong>Pipes</strong> e.g. <strong>Uppercase</strong>, 
-<strong>Lowercase</strong>, <strong>Date</strong>, <strong>JSON</strong>, <strong>Async</strong> etc. But sometime we have to create <strong>custom</strong> <strong>pipe</strong> e.g. <strong>range</strong> <strong>pipe</strong>:</p>
+<strong>Lowercase</strong>, <strong>Date</strong>, <strong>JSON</strong>, <strong>Async</strong> etc. But sometimes we have to create <strong>custom</strong> <strong>pipes</strong> e.g. <strong>range</strong> <strong>pipe</strong>:</p>
 
 <div class="highlight highlight-text-html-basic"><pre>| &lt;<span class="pl-ent">span</span> *<span class="pl-e">ngFor</span>=<span class="pl-s"><span class="pl-pds">"</span>let value of (1 | range : 10)<span class="pl-pds">"</span></span>&gt;{{value}} | &lt;/<span class="pl-ent">span</span>&gt;</pre></div>
 
@@ -112,10 +112,13 @@ and <strong>*ngFor</strong> will repeat the span 10 times with value 1 to 10.</p
     }
 }</pre></div>
 
-<p>So you can see in the above code, implementing the <strong>custom</strong> <strong>pipe</strong> in <strong>angular2</strong> is quite easy.
-1. Import the <strong>Pipe</strong> and <strong>PipeTransform</strong> class from <code>@angular/code</code>. 
-2. Provide <strong>Pipe</strong> name in <code>@Pipe</code> annotation.
-3. Implement <strong>PipeTransform</strong> and provide <strong>transform</strong> method of it.</p>
+<p>So you can see in the above code, implementing the <strong>custom</strong> <strong>pipe</strong> in <strong>angular2</strong> is quite easy.</p>
+
+<ol>
+<li>Import the <strong>Pipe</strong> and <strong>PipeTransform</strong> class from <code>@angular/code</code>.</li>
+<li>Provide <strong>Pipe</strong> name in <code>@Pipe</code> annotation.</li>
+<li>Implement <strong>transform</strong> method of <strong>PipeTransform</strong>.</li>
+</ol>
 
 <blockquote>
 <p>transform method will contain all the logic for transforming the input.</p>
