@@ -2,8 +2,8 @@
 
 This blog explain Pipes in Angular2
 
-In Angular2, we call **Pipes** to **[Filters](http://namitamalik.github.io/Filters-in-AngularJS/)**. 
-Who are not aware with **AngularJS**, **Pipe** transform the value in view, e.g.
+In Angular2, **[Filters](http://namitamalik.github.io/Filters-in-AngularJS/)** are known as **Pipes**. 
+Those who are not aware with **AngularJS**, **Pipes** transform the value in view, e.g.
 
 1. **Uppercase/Lowercase** **Pipe**:
     ```HTML
@@ -14,7 +14,7 @@ Who are not aware with **AngularJS**, **Pipe** transform the value in view, e.g.
     
     First line will print the name value as it is, but second line will print the name in the Upper Case
     while third line will print the name in the Lower Case.
-    > Property `name` will not change, It would be as it is.
+    > Property `name` will not change, it would be as it is.
 
 2. **Date** **Pipe**:
     ```HTML
@@ -30,7 +30,7 @@ Who are not aware with **AngularJS**, **Pipe** transform the value in view, e.g.
     ```HTML
     My DOM in Custom Form : <strong> {{ birthday | date : 'dd/MM/yyyy' }} </strong><br />
     ```
-    In the above line we are providing the date format, in which date should be displayed.
+    In the above line we are providing the date format in which date should be displayed.
     
 3. **JSON** **Pipe**:
     ```HTML
@@ -49,11 +49,11 @@ Who are not aware with **AngularJS**, **Pipe** transform the value in view, e.g.
     Async Object with async Pipe : <strong> {{ asyncValue$ | async }} </strong><br/>
     ```
     
-    First line having a value, which gets initialized asynchronously, and print the value on view whenever gets initialized.
-    while on second line we have promise/observable which print `[object Object]` instead of value while on third line
-    we are using **async** **pipe** so it will print value whenever promise/observable gets resolved.
+    First line is having a value, which gets initialized asynchronously, and prints the value on view whenever gets initialized.
+    while in the second line we have **promise** / **observable** which prints `[object Object]` instead of value while on third line
+    we are using **async** **pipe** so it will print value whenever **promise** / **observable** gets resolved.
 
-We can chain multiple **Pipe** one after one. So output of one **pipe** will be input for second **pipe** and so on. Output of 
+We can chain multiple **Pipes** one after one. So output of one **pipe** will be input for second **pipe** and so on. Output of 
 last **pipe** will be displayed on view e.g.
 
 ```HTML
@@ -63,7 +63,7 @@ Chaining Pipe result : <strong> {{ birthday | date : 'MMM dd, yyyy' | uppercase 
 #### Custom Pipes
 
 We can create **Custom** **Pipes** in **Angular2**, although **Angular2** has provided all basic **Pipes** e.g. **Uppercase**, 
-**Lowercase**, **Date**, **JSON**, **Async** etc. But sometime we have to create **custom** **pipe** e.g. **range** **pipe**:
+**Lowercase**, **Date**, **JSON**, **Async** etc. But sometimes we have to create **custom** **pipes** e.g. **range** **pipe**:
 
 ```HTML
 | <span *ngFor="let value of (1 | range : 10)">{{value}} | </span>
